@@ -25,7 +25,7 @@ namespace SnakeImproved {
             
                                                          //Snake icon
             while (true) {                                                  //Placing first apple
-                point.X = rnd.Next(0, boardW); point.Y = rnd.Next(0, boardH);
+                
                 bool spot = true;
                 foreach (Point i in snake)
                     if (i.X == point.X && i.Y == point.Y) {
@@ -33,7 +33,9 @@ namespace SnakeImproved {
                         break;
                     }                                                       //Apple placed
                 if (spot) {                                                 //Creating Apple
-                    Console.ForegroundColor = ConsoleColor.Green; Console.SetCursorPosition(point.X, point.Y); Console.Write("$");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.SetCursorPosition(point.X, point.Y);
+                    Console.Write("$");
                     break;
                 }                                                           //Apple created
             }

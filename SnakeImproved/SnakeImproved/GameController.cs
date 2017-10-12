@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SnakeImproved {
     class GameController {
@@ -17,7 +18,13 @@ namespace SnakeImproved {
             Console.Write("@");
 
             var snake = new Snake();
-            var apple = new Apple();
+            var apple = new Apple(boardW,boardH);
+        }
+
+        private void PlayGame() {
+
+            Stopwatch t = new Stopwatch();                                  //Instantiate time variable
+            t.Start();
         }
     }
 }
