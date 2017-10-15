@@ -12,12 +12,12 @@ namespace SnakeImproved {
         short newDir = 2;                                               // 0 = up, 1 = right, 2 = down, 3 = left
         short last;
         bool go;
-        Snake snake;
+        SnakePoint snake;
 
         public GameController() {
             t = new Stopwatch();
             go = false;
-
+            /////Board/////
             int boardW = Console.WindowWidth, boardH = Console.WindowHeight;
 
             Console.Title = "Westerdals Oslo ACT - SNAKE";                  //Windows title
@@ -26,7 +26,7 @@ namespace SnakeImproved {
             newDir = 2;
             last = newDir;
 
-            var snake = new Snake();
+            var snake = new SnakePoint();
             var apple = new Apple(boardW, boardH);
 
             Console.CursorVisible = false;

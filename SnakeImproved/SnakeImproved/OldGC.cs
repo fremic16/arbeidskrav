@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SnakeImproved {
     class OldGC {
 
-        Snake snake;
+        SnakePoint snake;
         Apple apple;
         bool pause = false;
 
