@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 namespace SnakeTidy {
     class Apple : Point {
 
-        Random rnd = new Random();
-        int boardW;
-        int boardH;
+        Random random = new Random();
+        int boardWidth;
+        int boardHeigth;
 
         public Apple(int Width, int Height) {
-            boardW = Width;
-            boardH = Height;
+            boardWidth = Width;
+            boardHeigth = Height;
             setCoords(this);
         }
         public Apple setCoords(Apple apple) {
-            apple.X = rnd.Next(0, boardW);
-            apple.Y = rnd.Next(0, boardH);
+            apple.X = random.Next(0, boardWidth);
+            apple.Y = random.Next(0, boardHeigth);
 
             return apple;
         }

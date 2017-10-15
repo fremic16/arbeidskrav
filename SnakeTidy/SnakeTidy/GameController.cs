@@ -10,14 +10,14 @@ namespace SnakeTidy {
     class GameController {
 
         Stopwatch time;
-        int boardW, boardH;
+        int boardWidth, boardHeigth;
         short newDir = 2; 
-        short last;
+        short lastDir;
         bool pause;
-        bool Eaten;
+        bool eaten;
         List<Point> snake;
         Point apple;
-        Point newH;
+        Point newHead;
 
         public GameController() {
             time = new Stopwatch();
@@ -25,8 +25,8 @@ namespace SnakeTidy {
 
 
             /// Board ///
-            boardW = Console.WindowWidth;
-            boardH = Console.WindowHeight;
+            boardWidth = Console.WindowWidth;
+            boardHeigth = Console.WindowHeight;
             Console.Title = "Westerdals Oslo ACT - SNAKE"; 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.CursorVisible = false;
@@ -34,7 +34,7 @@ namespace SnakeTidy {
             Console.Write("@");
 
             ///Generate Apple///
-            apple = PointFactory.Create(1, boardW, boardH);
+            apple = PointFactory.Create(1, boardWidth, boardHeigth);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.SetCursorPosition(apple.X, apple.Y);
             Console.Write("$");
@@ -44,11 +44,13 @@ namespace SnakeTidy {
 
             /////Direction variables/////
             newDir = 2;
-            last = newDir;
+            lastDir = newDir;
         }
-        //////////////////////
-        /// Sake Generator ///
-        //////////////////////
+
+        
+        ///////////////////////
+        /// Snake Generator ///
+        ///////////////////////
 
         private void SnakeGen() {
             snake = new List<Point> { };
@@ -57,6 +59,8 @@ namespace SnakeTidy {
             }
 
         }
+
+
         /////////////////
         /// THE GAME! ///
         /////////////////
@@ -72,19 +76,19 @@ namespace SnakeTidy {
                     }
                     time.Restart();
 
-                    newH = PointFactory.Create(0, snake.Last().X, snake.Last().Y);
+                    newHead = PointFactory.Create(0, snake.Last().X, snake.Last().Y);
                     switch (newDir) {
                         case 0:
-                            newH.Y -= 1;
+                            newHead.Y -= 1;
                             break;
                         case 1:
-                            newH.X += 1;
+                            newHead.X += 1;
                             break;
                         case 2:
-                            newH.Y += 1;
+                            newHead.Y += 1;
                             break;
                         default:
-                            newH.X -= 1;
+                            newHead.X -= 1;
                             break;
                     }
                     Checks();
@@ -92,6 +96,8 @@ namespace SnakeTidy {
                 }
             }
         }
+
+
         /////////////////
         /// Game Over ///
         /////////////////
@@ -99,32 +105,36 @@ namespace SnakeTidy {
         public void GameOver() {
             Environment.Exit(0);
         }
+
+
         //////////////////
         /// Div Checks ///
         //////////////////
 
         private void Checks() {
-            if (newH.X < 0 || newH.X >= boardW)
+            if (newHead.X < 0 || newHead.X >= boardWidth)
                 GameOver();
-            else if (newH.Y < 0 || newH.Y >= boardH)
+            else if (newHead.Y < 0 || newHead.Y >= boardHeigth)
                 GameOver();
 
-            if (newH.X == apple.X && newH.Y == apple.Y) {
-                if (snake.Count + 1 >= boardW * boardH) {
+            if (newHead.X == apple.X && newHead.Y == apple.Y) {
+                if (snake.Count + 1 >= boardWidth * boardHeigth) {
                     GameOver();
                 } else {
-                    Eaten = true;
+                    eaten = true;
                 }
             }
-            if (!Eaten) {
+            if (!eaten) {
                 foreach (Point x in snake)
-                    if (x.X == newH.X && x.Y == newH.Y) {
+                    if (x.X == newHead.X && x.Y == newHead.Y) {
                         // Death by accidental self-cannibalism.
                         GameOver();
                         break;
                     }
             }
         }
+
+
         //////////////////////////
         /// Printing to screen ///
         //////////////////////////
@@ -133,7 +143,7 @@ namespace SnakeTidy {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.SetCursorPosition(snake.Last().X, snake.Last().Y);
             Console.Write("0");
-            if (!Eaten) {
+            if (!eaten) {
                 Console.SetCursorPosition(snake.First().X, snake.First().Y);
                 Console.Write(" ");
                 snake.RemoveAt(0);
@@ -150,14 +160,16 @@ namespace SnakeTidy {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.SetCursorPosition(apple.X, apple.Y);
                 Console.Write("$");
-                Eaten = false;
+                eaten = false;
             }
-            snake.Add(newH);
+            snake.Add(newHead);
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.SetCursorPosition(newH.X, newH.Y);
+            Console.SetCursorPosition(newHead.X, newHead.Y);
             Console.Write("@");
-            last = newDir;
+            lastDir = newDir;
         }
+
+
         /////////////////////
         /// Input handler ///
         /////////////////////
@@ -169,13 +181,13 @@ namespace SnakeTidy {
                     GameOver();
                 else if (cki.Key == ConsoleKey.Spacebar)
                     pause = !pause;
-                else if (cki.Key == ConsoleKey.UpArrow && last != 2)
+                else if (cki.Key == ConsoleKey.UpArrow && lastDir != 2)
                     newDir = 0;
-                else if (cki.Key == ConsoleKey.RightArrow && last != 3)
+                else if (cki.Key == ConsoleKey.RightArrow && lastDir != 3)
                     newDir = 1;
-                else if (cki.Key == ConsoleKey.DownArrow && last != 0)
+                else if (cki.Key == ConsoleKey.DownArrow && lastDir != 0)
                     newDir = 2;
-                else if (cki.Key == ConsoleKey.LeftArrow && last != 1)
+                else if (cki.Key == ConsoleKey.LeftArrow && lastDir != 1)
                     newDir = 3;
             }
         }
