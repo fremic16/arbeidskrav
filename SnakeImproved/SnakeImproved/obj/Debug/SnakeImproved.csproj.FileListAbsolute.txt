@@ -1,2 +1,3 @@
 C:\Users\Micfr\Documents\Westerdals\17B\Software Design\Kode\FL04\Arbeidskrav\SnakeImproved\SnakeImproved\bin\Debug\SnakeImproved.exe.config
 C:\Users\Micfr\Documents\Westerdals\17B\Software Design\Kode\Git\SnakeImproved\SnakeImproved\bin\Debug\SnakeImproved.exe.config
+C:\Users\Micfr\Documents\Westerdals\17B\Software Design\Kode\Git\SnakeImproved\SnakeImproved\obj\Debug\SnakeImproved.csprojResolveAssemblyReference.cache

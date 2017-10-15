@@ -17,32 +17,34 @@ namespace SnakeImproved {
 
     class SnakeMess {
         public static void Main(string[] arguments) {
-            bool gg = false, pause = false, inUse = false;                  //gg = game over //pause = pause eller ikke //inUse
-            short newDir = 2;                                               // 0 = up, 1 = right, 2 = down, 3 = left
-            short last = newDir;                                            //Last direction
-            //The board
-                                                 //Creating points
-            
-                                                         //Snake icon
-            while (true) {                                                  //Placing first apple
-                
+            bool gg = false, pause = false, inUse = false;
+            short newDir = 2; // 0 = up, 1 = right, 2 = down, 3 = left
+            short last = newDir;
+            int boardW = Console.WindowWidth, boardH = Console.WindowHeight;
+            Random rnd = new Random();
+            Point app = new Point();
+            List<Point> snake = new List<Point>();
+            snake.Add(new Point(10, 10)); snake.Add(new Point(10, 10)); snake.Add(new Point(10, 10)); snake.Add(new Point(10, 10));
+            Console.CursorVisible = false;
+            Console.Title = "Westerdals Oslo ACT - SNAKE";
+            Console.ForegroundColor = ConsoleColor.Green; Console.SetCursorPosition(10, 10); Console.Write("@");
+            while (true) {
+                app.X = rnd.Next(0, boardW); app.Y = rnd.Next(0, boardH);
                 bool spot = true;
                 foreach (Point i in snake)
-                    if (i.X == point.X && i.Y == point.Y) {
+                    if (i.X == app.X && i.Y == app.Y) {
                         spot = false;
                         break;
-                    }                                                       //Apple placed
-                if (spot) {                                                 //Creating Apple
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.SetCursorPosition(point.X, point.Y);
-                    Console.Write("$");
+                    }
+                if (spot) {
+                    Console.ForegroundColor = ConsoleColor.Green; Console.SetCursorPosition(app.X, app.Y); Console.Write("$");
                     break;
-                }                                                           //Apple created
+                }
             }
-            Stopwatch t = new Stopwatch();                                  //Instantiate time variable
-            t.Start();                                                      //Start clock
-            while (!gg) {                                                   //While game is running...
-                if (Console.KeyAvailable) {                                 //Input controller
+            Stopwatch t = new Stopwatch();
+            t.Start();
+            while (!gg) {
+                if (Console.KeyAvailable) {
                     ConsoleKeyInfo cki = Console.ReadKey(true);
                     if (cki.Key == ConsoleKey.Escape)
                         gg = true;
@@ -56,15 +58,15 @@ namespace SnakeImproved {
                         newDir = 2;
                     else if (cki.Key == ConsoleKey.LeftArrow && last != 1)
                         newDir = 3;
-                }                                                           //Input end
-                if (!pause) {                                               //As long as not pause
+                }
+                if (!pause) {
                     if (t.ElapsedMilliseconds < 100)
                         continue;
                     t.Restart();
                     Point tail = new Point(snake.First());
                     Point head = new Point(snake.Last());
                     Point newH = new Point(head);
-                    switch (newDir) {                                      //Move snake
+                    switch (newDir) {
                         case 0:
                             newH.Y -= 1;
                             break;
@@ -77,33 +79,33 @@ namespace SnakeImproved {
                         default:
                             newH.X -= 1;
                             break;
-                    }                                                   //End not-pause
-                    if (newH.X < 0 || newH.X >= boardW)                 //Border-control
+                    }
+                    if (newH.X < 0 || newH.X >= boardW)
                         gg = true;
-                    else if (newH.Y < 0 || newH.Y >= boardH)            //Border-control
+                    else if (newH.Y < 0 || newH.Y >= boardH)
                         gg = true;
-                    if (newH.X == point.X && newH.Y == point.Y) {       //Eating apple
+                    if (newH.X == app.X && newH.Y == app.Y) {
                         if (snake.Count + 1 >= boardW * boardH)
                             // No more room to place apples - game over.
                             gg = true;
                         else {
-                            while (true) {                              //Placing next apple
-                                point.X = rnd.Next(0, boardW); point.Y = rnd.Next(0, boardH);
+                            while (true) {
+                                app.X = rnd.Next(0, boardW); app.Y = rnd.Next(0, boardH);
                                 bool found = true;
-                                foreach (Point i in snake)              //No-snake-collide check
-                                    if (i.X == point.X && i.Y == point.Y) {
+                                foreach (Point i in snake)
+                                    if (i.X == app.X && i.Y == app.Y) {
                                         found = false;
-                                        break;                          //Retry if snake-collision
+                                        break;
                                     }
-                                if (found) {                            //If all-good
-                                    inUse = true;                       //Activate apple
+                                if (found) {
+                                    inUse = true;
                                     break;
                                 }
                             }
                         }
                     }
-                    if (!inUse) {                                       //Remove snake-point(movement compensation)
-                        snake.RemoveAt(0);                              //Will not trigger on apple consumption
+                    if (!inUse) {
+                        snake.RemoveAt(0);
                         foreach (Point x in snake)
                             if (x.X == newH.X && x.Y == newH.Y) {
                                 // Death by accidental self-cannibalism.
@@ -113,18 +115,14 @@ namespace SnakeImproved {
                     }
                     if (!gg) {
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.SetCursorPosition(head.X, head.Y);
-                        Console.Write("0");
+                        Console.SetCursorPosition(head.X, head.Y); Console.Write("0");
                         if (!inUse) {
-                            Console.SetCursorPosition(tail.X, tail.Y);
-                            Console.Write(" ");
+                            Console.SetCursorPosition(tail.X, tail.Y); Console.Write(" ");
                         } else {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.SetCursorPosition(point.X, point.Y);
-                            Console.Write("$");
+                            Console.ForegroundColor = ConsoleColor.Green; Console.SetCursorPosition(app.X, app.Y); Console.Write("$");
                             inUse = false;
                         }
-                        snake.Add(newH);                                //Add snake-point(for movement)
+                        snake.Add(newH);
                         Console.ForegroundColor = ConsoleColor.Yellow; Console.SetCursorPosition(newH.X, newH.Y); Console.Write("@");
                         last = newDir;
                     }

@@ -17,7 +17,7 @@ namespace SnakeImproved {
             Point point = new Point(boardW,boardH);
         }
 
-        public void AppleGen(Point point,) {
+        public void AppleGen(Point point) {
 
                                                   
             point.X = rnd.Next(0, boardW); point.Y = rnd.Next(0, boardH);
