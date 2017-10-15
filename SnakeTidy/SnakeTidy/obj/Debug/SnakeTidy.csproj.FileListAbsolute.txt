@@ -1,0 +1,5 @@
+C:\Users\Micfr\Documents\Westerdals\17B\Software Design\Kode\FL04\Arbeidskrav\SnakeTidy\SnakeTidy\bin\Debug\SnakeTidy.exe.config
+C:\Users\Micfr\Documents\Westerdals\17B\Software Design\Kode\FL04\Arbeidskrav\SnakeTidy\SnakeTidy\bin\Debug\SnakeTidy.exe
+C:\Users\Micfr\Documents\Westerdals\17B\Software Design\Kode\FL04\Arbeidskrav\SnakeTidy\SnakeTidy\bin\Debug\SnakeTidy.pdb
+C:\Users\Micfr\Documents\Westerdals\17B\Software Design\Kode\FL04\Arbeidskrav\SnakeTidy\SnakeTidy\obj\Debug\SnakeTidy.exe
+C:\Users\Micfr\Documents\Westerdals\17B\Software Design\Kode\FL04\Arbeidskrav\SnakeTidy\SnakeTidy\obj\Debug\SnakeTidy.pdb

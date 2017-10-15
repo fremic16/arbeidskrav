@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SnakeImproved {
+namespace SnakeTidy {
     class Apple : Point {
 
         Random rnd = new Random();

@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace SnakeImproved {
+namespace SnakeTidy {
 
     class GameController {
 
         Stopwatch time;
         int boardW, boardH;
-        short newDir = 2;                                               // 0 = up, 1 = right, 2 = down, 3 = left
+        short newDir = 2; 
         short last;
         bool pause;
         bool Eaten;
@@ -23,14 +23,14 @@ namespace SnakeImproved {
             time = new Stopwatch();
             pause = false;
 
-            
+
             /// Board ///
             boardW = Console.WindowWidth;
             boardH = Console.WindowHeight;
-            Console.Title = "Westerdals Oslo ACT - SNAKE";                  //Windows title
+            Console.Title = "Westerdals Oslo ACT - SNAKE"; 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.CursorVisible = false;
-            Console.SetCursorPosition(10, 10);                              //Set cursor position
+            Console.SetCursorPosition(10, 10);                              
             Console.Write("@");
 
             ///Generate Apple///
@@ -108,7 +108,7 @@ namespace SnakeImproved {
                 GameOver();
             else if (newH.Y < 0 || newH.Y >= boardH)
                 GameOver();
-            
+
             if (newH.X == apple.X && newH.Y == apple.Y) {
                 if (snake.Count + 1 >= boardW * boardH) {
                     GameOver();

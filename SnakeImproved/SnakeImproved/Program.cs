@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SnakeImproved {
-    class SnakePoint : Point {
+    class Program {
 
-        public SnakePoint(int x, int y) {
-            X = x;
-            Y = y;
+        public static void Main() {
+            var gc = new GameController();
+            gc.PlayGame();
         }
     }
 }

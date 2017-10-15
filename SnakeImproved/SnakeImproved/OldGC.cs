@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SnakeImproved {
+/*namespace SnakeImproved {
     class OldGC {
 
         SnakePoint snake;
@@ -109,7 +109,7 @@ namespace SnakeImproved {
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.SetCursorPosition(newH.X, newH.Y);      //Go to new head position
                         Console.Write("@");                             //Write '@' to indicate a new head. If tail was not removed, snake has now increased in length 
-                        last = newDir;                                  //**And set the last direction to the current one**//
+                        last = newDir;                                  //**And set the last direction to the current one
                     }
                 }
             }
@@ -125,4 +125,4 @@ namespace SnakeImproved {
 
         }
     }
-}
+}*/

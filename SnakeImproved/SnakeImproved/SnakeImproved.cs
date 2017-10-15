@@ -13,7 +13,7 @@ using System.Diagnostics;
 //
 //          -Tomas
 //
-namespace SnakeImproved {
+/*namespace SnakeImproved {
 
     class SnakeMess {
         public static void Main(string[] arguments) {
@@ -115,9 +115,11 @@ namespace SnakeImproved {
                     }
                     if (!gg) {
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.SetCursorPosition(head.X, head.Y); Console.Write("0");
+                        Console.SetCursorPosition(head.X, head.Y);
+                        Console.Write("0");
                         if (!inUse) {
-                            Console.SetCursorPosition(tail.X, tail.Y); Console.Write(" ");
+                            Console.SetCursorPosition(tail.X, tail.Y);
+                            Console.Write(" ");
                         } else {
                             Console.ForegroundColor = ConsoleColor.Green; Console.SetCursorPosition(app.X, app.Y); Console.Write("$");
                             inUse = false;
@@ -130,4 +132,4 @@ namespace SnakeImproved {
             }
         }
     }
-}
+}*/

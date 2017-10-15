@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SnakeImproved {
+namespace SnakeTidy {
     class SnakePoint : Point {
 
         public SnakePoint(int x, int y) {

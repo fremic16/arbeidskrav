@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace SnakeImproved {
+/*namespace SnakeImproved {
     class GameBoard {
 
         
@@ -39,4 +39,4 @@ namespace SnakeImproved {
         }
 
     }
-}
+}*/
