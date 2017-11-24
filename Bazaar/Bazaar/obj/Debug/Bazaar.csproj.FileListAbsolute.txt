@@ -1,0 +1,7 @@
+C:\Users\Micfr\source\repos\Bazaar\Bazaar\bin\Debug\Bazaar.exe.config
+C:\Users\Micfr\source\repos\Bazaar\Bazaar\bin\Debug\Bazaar.exe
+C:\Users\Micfr\source\repos\Bazaar\Bazaar\bin\Debug\Bazaar.pdb
+C:\Users\Micfr\source\repos\Bazaar\Bazaar\obj\Debug\Bazaar.csprojResolveAssemblyReference.cache
+C:\Users\Micfr\source\repos\Bazaar\Bazaar\obj\Debug\Bazaar.csproj.CoreCompileInputs.cache
+C:\Users\Micfr\source\repos\Bazaar\Bazaar\obj\Debug\Bazaar.exe
+C:\Users\Micfr\source\repos\Bazaar\Bazaar\obj\Debug\Bazaar.pdb
