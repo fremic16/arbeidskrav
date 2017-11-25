@@ -27,6 +27,7 @@ namespace Bazaar {
 			{
 				Console.WriteLine("Merchant " + m.Name + " is advertising");
 				m.Advertise();
+				Thread.Sleep(2000);
 			}
 		}
 
@@ -73,7 +74,7 @@ namespace Bazaar {
 			{
 				t.Start(m);
 			}
-
+			Pause();
 		}
 
 		void Pause()

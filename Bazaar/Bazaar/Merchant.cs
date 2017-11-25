@@ -30,7 +30,6 @@ namespace Bazaar
 				Items.Add(Factory.CreateComputer());
 				OnItemForSale(EventArgs.Empty);
 			}
-			OnItemForSale(EventArgs.Empty);
 		}
 
 		protected virtual void OnItemForSale(EventArgs e)

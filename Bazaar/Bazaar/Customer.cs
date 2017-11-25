@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Bazaar {
@@ -39,6 +40,15 @@ namespace Bazaar {
 		{
 			Merchant m = (Merchant) o;
 			m.Sale(pocket, Name);
+		}
+
+		public void ThreadSleep()
+		{
+			bool wait = true;
+			while (wait)
+			{
+				
+			}
 		}
 	}
 }
