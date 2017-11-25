@@ -12,10 +12,10 @@ namespace Bazaar {
 		public Customer(string name, ArrayList salesMenList)
 		{
 			Name = name;
-			foreach (Merchant m in salesMenList)
+			/*foreach (Merchant m in salesMenList)
 			{
 				m.ItemForSale += I_ItemForSale;
-			}
+			}*/
 			//Merchant.ItemForSale += I_ItemForSale;
 		}
 
@@ -33,6 +33,12 @@ namespace Bazaar {
 			Merchant m = (Merchant) sender;
 			m.Sale(pocket, Name);
 			Console.WriteLine("Event Handled by " + Name);
+		}
+
+		public void ShoppingSpree(Object o)
+		{
+			Merchant m = (Merchant) o;
+			m.Sale(pocket, Name);
 		}
 	}
 }

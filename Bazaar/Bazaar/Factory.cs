@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Bazaar {
@@ -10,6 +11,7 @@ namespace Bazaar {
 	{
 		private static int _merchantCounter = 1;
 		private static int _customerCounter = 1;
+		Merchant mer = new Merchant("Test");
 
 		private Factory() { }
 
@@ -45,6 +47,12 @@ namespace Bazaar {
 				i = RandomGen.GetRandom(0,4);
 			}
 			return pc;
+		}
+
+		public static Thread CreateThread(Customer c)
+		{
+			Thread t = new Thread(c.ShoppingSpree);
+			return t;
 		}
 	}
 }
